@@ -26,15 +26,16 @@ public class EnemyCollision : MonoBehaviour
     {
         if (health <= 0)
         { 
-            FX_Agent_Die.Play();
             Die();
             SceneManager.LoadScene("Start");
 
         }
 	}
 
+
     void OnCollisionEnter(Collision other)
     {
+        // Checked of agent wordt geraakt door enemy
         if (other.gameObject.tag == "enemy")
         {
             health = health - damage;
@@ -42,15 +43,21 @@ public class EnemyCollision : MonoBehaviour
             Agent.GetComponent<Renderer>().material.mainTexture = SadFace;
 
         }
+        // Zorgt er voor dat hij blij is als hij niet wordt gesmacked
+        else
+        {
+            Agent.GetComponent<Renderer>().material.mainTexture = HappyFace;
+        }
     }
 
+
+    //Laat agent verdwijnen en speelt particles af
     void Die()
     {
         
-        GetComponent<AudioSource>().Play();
+        FX_Agent_Die.Play();
         Destroy(Agent);
     }
 
-   
-
+  
 }
