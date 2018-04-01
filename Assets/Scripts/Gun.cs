@@ -11,12 +11,11 @@ public class Gun : MonoBehaviour {
     public ParticleSystem ShotsFired;
     public GameObject ShotImpact;
 
-	// Use this for initialization
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
+	//Calls shooter fuction when leftmouse is pushed
 	void Update () 
     {
         if (Input.GetButtonDown("Fire1"))
@@ -27,18 +26,28 @@ public class Gun : MonoBehaviour {
 
     void shooter()
     {
+        //Sounds and particles for shooting
         ShotsFired.Play();
+        GetComponent<AudioSource>().Play();
 
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
 
+            //Checking if raycast hits the enemy or tree and calls for smackings
             Target target =  hit.transform.GetComponent<Target>();
             if(target != null)
             {
                 target.TakeDamage(damage);
             }
+
+            TreeHit tree = hit.transform.GetComponent<TreeHit>();
+            if (tree != null)
+            {
+                tree.TakeDamage(damage);
+            }
+
 
             Instantiate(ShotImpact, hit.point, Quaternion.LookRotation(hit.normal));
         }

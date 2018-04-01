@@ -13,6 +13,7 @@ public class MouseCam : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         character = this.transform.parent.gameObject;
+
 	}
 	
 	// Update is called once per frame
@@ -25,6 +26,7 @@ public class MouseCam : MonoBehaviour {
         mouseLook += smooth;
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y,    Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
-               
+
+
 	}
 }

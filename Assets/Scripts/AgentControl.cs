@@ -9,25 +9,29 @@ public class AgentControl : MonoBehaviour
 
     public Transform target;
     NavMeshAgent agent;
-    public PickableObject Player;
-
-
+    private PickableObject Player;
+    public Transform lookHere;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
         Player = GameObject.FindWithTag("Player").GetComponent<PickableObject>();
-
 	}
 	
+
+
 	// Update is called once per frame
+    [SerializeField]
 	void Update () 
     {
- 
-            if (Player.currentTransform != null)
-            {
-                agent = this.GetComponent<NavMeshAgent>();
-                agent.SetDestination(target.position);
-            }
+
+        if (Player.currentTransform != null)
+        {
+            agent = this.GetComponent<NavMeshAgent>();
+            agent.SetDestination(target.position);
+            transform.LookAt(lookHere);
+        }
+
 
     }
 }

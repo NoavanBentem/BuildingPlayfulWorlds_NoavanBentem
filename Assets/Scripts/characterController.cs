@@ -11,8 +11,10 @@ public class characterController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update(){
+   
+    void Update()
+    {
+        //Makes character move
             float translation = Input.GetAxis("Vertical") * speed;
             float straffe = Input.GetAxis("Horizontal") * speed;
             translation *= Time.deltaTime;
@@ -20,6 +22,8 @@ public class characterController : MonoBehaviour
             transform.Translate(straffe, 0, translation);
 
             if (Input.GetKeyDown("escape"))
-                Cursor.lockState = CursorLockMode.None;                    //Makes cursor come back when escape is down to give your cursor back oooooh
-    }
+                Cursor.lockState = CursorLockMode.None; //Makes cursor come back when escape is down to give your cursor back oooooh
+            
+
+    }   
 }

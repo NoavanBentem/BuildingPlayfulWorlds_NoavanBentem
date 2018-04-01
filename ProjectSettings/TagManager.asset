@@ -7,6 +7,12 @@ TagManager:
   - PickableObject
   - Red
   - MainTree
+  - agent
+  - enemy
+  - Agent0
+  - Agent1
+  - Agent2
+  - Agent3
   layers:
   - Default
   - TransparentFX
