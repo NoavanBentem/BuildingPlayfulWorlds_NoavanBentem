@@ -48,7 +48,6 @@ public class PlateauTrigger : MonoBehaviour {
         if (A0 == true && A1 == true && A2 == true && A3 == true)
         {
             SceneManager.LoadScene("NextStage");
-            Debug.Log("NextStageMOFO");
         }
     }
 }
