@@ -8,10 +8,10 @@ public class TreeHit : MonoBehaviour
     public float health = 100f;
     public GameObject Bridge;
     public Transform SpawnPoint;
+    public ParticleSystem TreeParticle;
 
     void Start()
     {
-
     }
 
     //Checking health if health is zero and calling the die function

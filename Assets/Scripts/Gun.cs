@@ -33,7 +33,6 @@ public class Gun : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
 
             //Checking if raycast hits the enemy or tree and calls for smackings
             Target target =  hit.transform.GetComponent<Target>();
